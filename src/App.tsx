@@ -11,6 +11,7 @@ import toggle from './assets/toggle.png';
 import { LS, LSKeys } from './ls';
 import { appSt } from './style.css';
 import { ThxLayout } from './thx/ThxLayout';
+import { sendDataToGA } from './utils/events';
 
 export const App = () => {
   const [loading, setLoading] = useState(false);
@@ -26,9 +27,14 @@ export const App = () => {
   const submit = () => {
     setLoading(true);
 
-    // LS.setItem(LSKeys.ShowThx, true);
-    setThx(true);
-    setLoading(false);
+    sendDataToGA({
+      carousel: '',
+      subscription: '',
+    }).then(() => {
+      // LS.setItem(LSKeys.ShowThx, true);
+      setThx(true);
+      setLoading(false);
+    });
   };
 
   if (thxShow) {
