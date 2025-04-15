@@ -39,32 +39,14 @@ export const App = () => {
   return (
     <>
       <div className={appSt.container}>
-        <img src={alfaOnly} width={158} height={33} className={appSt.img} />
-        <Typography.Text style={{ marginBottom: '1rem' }} view="primary-medium">
-          Перейдите на новый уровень
+        <img src={alfaOnly} width={158} height={38} className={appSt.img} />
+        <Typography.Text style={{ marginBottom: '1rem', textAlign: 'center' }} view="primary-medium">
+          Переведите деньги
+          <br />
+          на счета в Альфа-Банк
         </Typography.Text>
 
         <img src={toggle} width={132} height={85} className={appSt.img} />
-
-        <div className={appSt.switcher}>
-          <div
-            className={appSt.switcherBtn({ selected: selected === 'На 1 месяц' })}
-            onClick={() => setSelected('На 1 месяц')}
-          >
-            <Typography.Text view="primary-medium" weight="medium">
-              На 1 месяц
-            </Typography.Text>
-          </div>
-          <div className={appSt.switcherBtn({ selected: selected === 'На 1 год' })} onClick={() => setSelected('На 1 год')}>
-            <Typography.Text view="primary-medium" weight="medium">
-              На 1 год
-            </Typography.Text>
-          </div>
-        </div>
-
-        <Typography.Text view="primary-medium">
-          <b>Сохраните 20%</b> с подпиской на год
-        </Typography.Text>
 
         <div className={appSt.box}>
           <PureCell>
@@ -109,7 +91,7 @@ export const App = () => {
           Подробнее об условиях
         </Typography.Text>
       </div>
-      <Gap size={96} />
+      <Gap size={256} />
 
       <div className={appSt.bottomBtn}>
         <ButtonMobile
@@ -119,16 +101,18 @@ export const App = () => {
           view="primary"
           size={72}
           onClick={submit}
-          hint="Подключить"
+          hint="При остатке на счетах от* 2 млн ₽"
         >
-          {selected === 'На 1 месяц' ? (
-            '5 000 ₽ в месяц'
-          ) : (
-            <>
-              <s>60 000 ₽</s> <span style={{ color: '#FFD57B' }}>48 000 ₽ на год</span>
-            </>
-          )}
+          Подключить за 0 ₽ в мес.
         </ButtonMobile>
+        <Typography.Text
+          view="primary-small"
+          tag="p"
+          defaultMargins={false}
+          style={{ color: '#51567D', textAlign: 'center' }}
+        >
+          * При остатке от 3 000 000 ₽ или от 2 000 000 ₽ и трат по картам от 200 000 ₽ в месяц
+        </Typography.Text>
       </div>
 
       <BottomSheet
@@ -138,7 +122,7 @@ export const App = () => {
         }}
         contentClassName={appSt.btmContent}
         actionButton={
-          <ButtonMobile block view="primary" onClick={() => setShowBs(false)}>
+          <ButtonMobile shape="rounded" block view="primary" onClick={() => setShowBs(false)}>
             Понятно
           </ButtonMobile>
         }
