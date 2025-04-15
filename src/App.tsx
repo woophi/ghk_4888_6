@@ -16,7 +16,6 @@ export const App = () => {
   const [loading, setLoading] = useState(false);
   const [showBs, setShowBs] = useState(false);
   const [thxShow, setThx] = useState(LS.getItem(LSKeys.ShowThx, false));
-  const [selected, setSelected] = useState('На 1 месяц');
 
   useEffect(() => {
     if (!LS.getItem(LSKeys.UserId, null)) {
