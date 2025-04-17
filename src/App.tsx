@@ -31,7 +31,7 @@ export const App = () => {
       carousel: '',
       subscription: '',
     }).then(() => {
-      // LS.setItem(LSKeys.ShowThx, true);
+      LS.setItem(LSKeys.ShowThx, true);
       setThx(true);
       setLoading(false);
     });
